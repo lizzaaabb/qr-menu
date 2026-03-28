@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap');
+
+.main-container {
+  width: 100%;
+  padding: 0 0 48px;
+  background: var(--ivory);
+}
+
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 32px 24px 20px;
+}
+
+.section-eyebrow {
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 5px;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 30px;
+  font-weight: 300;
+  color: var(--text-dark);
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.section-link {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--gold-pale);
+  padding-bottom: 2px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 0 24px;
+}
+
+.category-card {
+  cursor: pointer;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.category-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.category-img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(28,26,23,0.35) 100%);
+  pointer-events: none;
+}
+
+.category-img-wrap img {
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.category-card:hover .category-img-wrap img {
+  transform: scale(1.06) !important;
+}
+
+.category-label {
+  padding: 10px 12px 12px;
+  background: var(--ivory);
+  border-top: 0.5px solid var(--gold-pale);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.category-label-text {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-dark);
+  letter-spacing: 0.02em;
+}
+
+.category-label-sub {
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.gold-dot {
+  display: inline-block;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  margin-right: 7px;
+  vertical-align: middle;
+  margin-bottom: 1px;
+}
+
+@media (max-width: 768px) {
+  .category-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 0 16px;
+  }
+  .category-img-wrap { height: 110px; }
+}

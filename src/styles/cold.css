@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,500&family=Jost:wght@300;400;500&display=swap');
+
+/* ── Variables ── */
+:root {
+  --ivory:      #FAF8F4;
+  --cream:      #F3EFE7;
+  --gold:       #B49150;
+  --gold-pale:  rgba(180, 145, 80, 0.18);
+  --gold-dim:   rgba(180, 145, 80, 0.55);
+  --text-dark:  #1C1A17;
+  --text-muted: #7A7060;
+}
+
+/* ── Container ── */
+.cold-wrap {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--ivory);
+  padding: 0 20px 48px;
+  box-sizing: border-box;
+}
+
+/* ── Header ── */
+.cold-hd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 36px 0 22px;
+}
+
+.cold-back {
+  background: none;
+  border: 0.5px solid var(--gold-pale);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: border-color 0.3s, color 0.3s, background 0.3s;
+}
+.cold-back:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(180, 145, 80, 0.04);
+}
+
+.cold-hd-center {
+  text-align: center;
+  flex: 1;
+}
+
+.cold-eyebrow {
+  font-family: 'Jost', sans-serif;
+  font-size: 8.5px;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.cold-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 30px;
+  font-weight: 300;
+  color: var(--text-dark);
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+.cold-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.cold-badge {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-muted);
+  border: 0.5px solid var(--gold-pale);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── Ornament ── */
+.cold-orn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.cold-orn-line {
+  flex: 1;
+  height: 0.5px;
+  background: var(--gold-pale);
+}
+.cold-orn-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+.cold-orn-diamond {
+  font-size: 7px;
+  color: var(--gold);
+  opacity: 0.65;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* ── Grid ── */
+.cold-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* ── Card ── */
+.cold-card {
+  background: var(--cream);
+  border: 0.5px solid var(--gold-pale);
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.4s ease;
+}
+.cold-card--active {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(28, 26, 23, 0.1);
+}
+
+/* ── Card image ── */
+.cold-card-img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #DDD8CC;
+}
+
+/* Next.js Image fill wrapper needs a positioned parent — handled above */
+.cold-card-img img {
+  transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+.cold-card--active .cold-card-img img {
+  transform: scale(1.07) !important;
+}
+
+.cold-card-vignette {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(28, 26, 23, 0.28) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cold-card-num {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  z-index: 2;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.12em;
+}
+
+/* Gold corner triangle */
+.cold-card-corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+}
+.cold-card-corner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 28px 28px 0;
+  border-color: transparent var(--gold) transparent transparent;
+  opacity: 0.22;
+}
+
+/* ── Card body ── */
+.cold-card-body {
+  padding: 14px 14px 16px;
+  background: var(--ivory);
+  border-top: 0.5px solid var(--gold-pale);
+}
+
+.cold-card-sub {
+  font-family: 'Jost', sans-serif;
+  font-size: 7.5px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.cold-card-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--text-dark);
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.cold-card-divider {
+  width: 22px;
+  height: 0.5px;
+  background: var(--gold-dim);
+  margin-bottom: 7px;
+}
+
+.cold-card-desc {
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+
+.cold-card-footer {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.cold-card-price {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--text-dark);
+  letter-spacing: 0.04em;
+}
+
+.cold-card-lari {
+  font-size: 13px;
+  color: var(--gold);
+  margin-right: 2px;
+}
+
+.cold-card-dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold-pale);
+  border: 0.5px solid var(--gold-dim);
+}
+
+/* ── Mobile ── */
+@media (max-width: 420px) {
+  .cold-grid {
+    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cold-card-name {
+    font-size: 16px;
+  }
+  .cold-card-body {
+    padding: 11px 11px 13px;
+  }
+}
