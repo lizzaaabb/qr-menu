@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, {useEffect} from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import '../styles/main.css'
@@ -16,6 +16,12 @@ const categories = [
 export default function Main() {
   const router = useRouter()
 
+  useEffect(() => {
+  if ('scrollRestoration' in window.history) {
+    window.history.scrollRestoration = 'manual'
+  }
+  window.scrollTo(0, 0)
+}, [])
   return (
     <div className="main-container">
       <div className="section-header">

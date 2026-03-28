@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap');
 
+
+*{
+    scroll-behavior: smooth;
+}
+html{
+    scroll-behavior: smooth;
+}
+
 .main-container {
   width: 100%;
   padding: 0 0 48px;
